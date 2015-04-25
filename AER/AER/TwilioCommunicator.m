@@ -8,6 +8,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "URLFactory.h"
 #import "NSDate+FormattedDates.h"
+#import "BaseRequestSerializer.h"
 
 static NSString * const kAccountSID = @"AC40963c88c1b2510cd506f55cc6c89816";
 static NSString * const kAuthToken = @"8a757c581df51d708c84b06507e1f631";
@@ -41,14 +42,16 @@ static NSString * const kAuthToken = @"8a757c581df51d708c84b06507e1f631";
     self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
     self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    NSDictionary *postDict = @{ @"From": @"13158492154", @"To": @"13152515028" };
+    NSDictionary *postDict = @{ @"From": @"13158492154", @"To": @"13152515028" , @"Body": @"Test"};
     
     [self.manager POST:[NSString stringWithFormat:@"%@/Accounts/%@/Messages", [NSDate RequestDateString], kAccountSID]
             parameters:postDict
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
                    NSLog(@"Response %@", responseObject);
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                   NSLog(@"%@", error);
+                   NSLog(@"%@", operation.response.allHeaderFields);
+                   NSString *string = [[NSString alloc] initWithData:error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
+                   NSLog(@"String %@", string);
                }];
     
 }
