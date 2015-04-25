@@ -10,6 +10,9 @@
 		A9D75BC247DF8789031C1057 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1AF7DA540B3B02733D2E79 /* libPods.a */; };
 		D03FCB5C1AEB6761009F03C6 /* Warnings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D03FCB5B1AEB6761009F03C6 /* Warnings.xcconfig */; };
 		D06CDE171AEBCE2D00B4F0B9 /* URLFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D06CDE161AEBCE2D00B4F0B9 /* URLFactory.m */; };
+		D06CDE1A1AEBCE9E00B4F0B9 /* TwilioCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = D06CDE191AEBCE9E00B4F0B9 /* TwilioCommunicator.m */; };
+		D06CDE1F1AEBD1F900B4F0B9 /* NSDate+FormattedDates.m in Sources */ = {isa = PBXBuildFile; fileRef = D06CDE1E1AEBD1F900B4F0B9 /* NSDate+FormattedDates.m */; };
+		D06CDE201AEBD24300B4F0B9 /* NSDate+FormattedDates.m in Sources */ = {isa = PBXBuildFile; fileRef = D06CDE1E1AEBD1F900B4F0B9 /* NSDate+FormattedDates.m */; };
 		D0ED69AE1AEB5C88008EDA8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69AD1AEB5C88008EDA8B /* main.m */; };
 		D0ED69B11AEB5C88008EDA8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69B01AEB5C88008EDA8B /* AppDelegate.m */; };
 		D0ED69B41AEB5C88008EDA8B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69B31AEB5C88008EDA8B /* ViewController.m */; };
@@ -36,6 +39,10 @@
 		D03FCB5B1AEB6761009F03C6 /* Warnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Warnings.xcconfig; path = ../Warnings.xcconfig; sourceTree = "<group>"; };
 		D06CDE151AEBCE2D00B4F0B9 /* URLFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLFactory.h; sourceTree = "<group>"; };
 		D06CDE161AEBCE2D00B4F0B9 /* URLFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLFactory.m; sourceTree = "<group>"; };
+		D06CDE181AEBCE9E00B4F0B9 /* TwilioCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwilioCommunicator.h; sourceTree = "<group>"; };
+		D06CDE191AEBCE9E00B4F0B9 /* TwilioCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwilioCommunicator.m; sourceTree = "<group>"; };
+		D06CDE1D1AEBD1F900B4F0B9 /* NSDate+FormattedDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+FormattedDates.h"; sourceTree = "<group>"; };
+		D06CDE1E1AEBD1F900B4F0B9 /* NSDate+FormattedDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+FormattedDates.m"; sourceTree = "<group>"; };
 		D0ED69A81AEB5C88008EDA8B /* AER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0ED69AC1AEB5C88008EDA8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0ED69AD1AEB5C88008EDA8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -96,6 +103,24 @@
 			name = Factories;
 			sourceTree = "<group>";
 		};
+		D06CDE1B1AEBD16600B4F0B9 /* Network Communicators */ = {
+			isa = PBXGroup;
+			children = (
+				D06CDE181AEBCE9E00B4F0B9 /* TwilioCommunicator.h */,
+				D06CDE191AEBCE9E00B4F0B9 /* TwilioCommunicator.m */,
+			);
+			name = "Network Communicators";
+			sourceTree = "<group>";
+		};
+		D06CDE1C1AEBD1E900B4F0B9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D06CDE1D1AEBD1F900B4F0B9 /* NSDate+FormattedDates.h */,
+				D06CDE1E1AEBD1F900B4F0B9 /* NSDate+FormattedDates.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		D0ED699F1AEB5C88008EDA8B = {
 			isa = PBXGroup;
 			children = (
@@ -119,11 +144,13 @@
 		D0ED69AA1AEB5C88008EDA8B /* AER */ = {
 			isa = PBXGroup;
 			children = (
-				D06CDE141AEBCE1E00B4F0B9 /* Factories */,
+				D06CDE1C1AEBD1E900B4F0B9 /* Categories */,
 				D0ED69AF1AEB5C88008EDA8B /* AppDelegate.h */,
 				D0ED69B01AEB5C88008EDA8B /* AppDelegate.m */,
 				D0ED69B21AEB5C88008EDA8B /* ViewController.h */,
 				D0ED69B31AEB5C88008EDA8B /* ViewController.m */,
+				D06CDE141AEBCE1E00B4F0B9 /* Factories */,
+				D06CDE1B1AEBD16600B4F0B9 /* Network Communicators */,
 				D0ED69B51AEB5C88008EDA8B /* Main.storyboard */,
 				D0ED69B81AEB5C88008EDA8B /* Images.xcassets */,
 				D0ED69BA1AEB5C88008EDA8B /* LaunchScreen.xib */,
@@ -297,6 +324,8 @@
 			files = (
 				D0ED69B41AEB5C88008EDA8B /* ViewController.m in Sources */,
 				D0ED69B11AEB5C88008EDA8B /* AppDelegate.m in Sources */,
+				D06CDE1A1AEBCE9E00B4F0B9 /* TwilioCommunicator.m in Sources */,
+				D06CDE1F1AEBD1F900B4F0B9 /* NSDate+FormattedDates.m in Sources */,
 				D06CDE171AEBCE2D00B4F0B9 /* URLFactory.m in Sources */,
 				D0ED69AE1AEB5C88008EDA8B /* main.m in Sources */,
 			);
@@ -307,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0ED69C81AEB5C88008EDA8B /* AERTests.m in Sources */,
+				D06CDE201AEBD24300B4F0B9 /* NSDate+FormattedDates.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
