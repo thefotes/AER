@@ -20,14 +20,27 @@ PODS:
   - AFNetworking/UIKit (2.5.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AFNetworkingLogger (0.0.17):
+    - AFNetworking
   - ECSlidingViewController (2.0.3)
 
 DEPENDENCIES:
   - AFNetworking
+  - AFNetworkingLogger (from `https://github.com/stanislaw/AFNetworkingLogger`)
   - ECSlidingViewController
+
+EXTERNAL SOURCES:
+  AFNetworkingLogger:
+    :git: https://github.com/stanislaw/AFNetworkingLogger
+
+CHECKOUT OPTIONS:
+  AFNetworkingLogger:
+    :commit: 623b31400c96f6764aeab7ee9d2528062dfa090b
+    :git: https://github.com/stanislaw/AFNetworkingLogger
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
+  AFNetworkingLogger: 93bc0d08779b928370520ea5450df7d4c6568c5d
   ECSlidingViewController: 6485c14f23b4487e9946535421ca8f111f86cc53
 
 COCOAPODS: 0.36.4

@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 3
 
+// AFNetworkingLogger
+#define COCOAPODS_POD_AVAILABLE_AFNetworkingLogger
+#define COCOAPODS_VERSION_MAJOR_AFNetworkingLogger 0
+#define COCOAPODS_VERSION_MINOR_AFNetworkingLogger 0
+#define COCOAPODS_VERSION_PATCH_AFNetworkingLogger 17
+
 // ECSlidingViewController
 #define COCOAPODS_POD_AVAILABLE_ECSlidingViewController
 #define COCOAPODS_VERSION_MAJOR_ECSlidingViewController 2
