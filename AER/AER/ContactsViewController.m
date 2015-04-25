@@ -7,6 +7,7 @@
 #import "Contact.h"
 #import "ContactsTableViewCell.h"
 #import "NotifyContactsFooterView.h"
+#import "TwilioCommunicator.h"
 
 @import AddressBookUI;
 
@@ -27,21 +28,34 @@
 
 - (NSMutableArray *)contacts
 {
-    return _contacts = _contacts ?: [NSMutableArray new];
+    if (!_contacts) {
+        _contacts = [NSMutableArray new];
+        Contact *newContact = [[Contact alloc] init];
+        newContact.firstName = @"Peter";
+        newContact.lastName = @"Foti";
+        newContact.phoneNumber = @"3152515028";
+        newContact.message = @"Testing 123";
+        
+        Contact *secondContact = [[Contact alloc] init];
+        secondContact.firstName = @"Brian";
+        secondContact.lastName = @"Palma";
+        secondContact.phoneNumber = @"3152478818";
+        secondContact.message = @"Testing";
+        
+        [_contacts addObject:newContact];
+        [_contacts addObject:secondContact];
+    }
+    
+    return _contacts;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ContactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ContactsTableViewCell class])];
     
-    Contact *newContact = [[Contact alloc] init];
-    newContact.firstName = @"Peter";
-    newContact.lastName = @"Foti";
+    Contact *currentContact = self.contacts[(NSUInteger)indexPath.row];
     
-    [cell configureWithContact:newContact];
-//    Contact *currentContact = self.contacts[(NSUInteger)indexPath.row];
-//    
-//    [cell configureWithContact:currentContact];
+    [cell configureWithContact:currentContact];
     
     return cell;
 }
@@ -53,7 +67,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return (NSInteger)1;
+    return (NSInteger)self.contacts.count;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -80,9 +94,15 @@
     for (ContactsTableViewCell *cell in cells) {
         [cell startSpinning];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [cell stopSpinningForState:SpinnerStateSuccessful];
-        });
+        [[TwilioCommunicator sharedTwilioCommunicator] sendMessage:@"What a message"
+                                                         toContact:cell.currentContact
+                                                    withCompletion:^(id obj) {
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            [cell stopSpinningForState:SpinnerStateSuccessful];
+                                                        });
+                                                    } andFailure:^(NSError *error) {
+                                                        NSLog(@"Failed %@", error);
+                                                    }];
     }
 }
 

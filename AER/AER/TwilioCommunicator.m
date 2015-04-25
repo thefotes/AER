@@ -9,6 +9,7 @@
 #import "URLFactory.h"
 #import "BaseRequestSerializer.h"
 #import "StringConstants.h"
+#import "Contact.h"
 
 @interface TwilioCommunicator ()
 
@@ -37,7 +38,7 @@
 - (void)sendMessage:(NSString *)message toNumber:(NSString *)number withCompletion:(CompletionBlock)completion andFailure:(ErrorBlock)errorBlock
 {
     self.manager.requestSerializer = [BaseRequestSerializer serializer];
-    self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    self.manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
     
     NSDictionary *postDict = @{ @"From": kFromNumber, @"To": number , @"Body": message};
     
@@ -53,6 +54,26 @@
                    }
                }];
     
+}
+
+- (void)sendMessage:(NSString *)message toContact:(Contact *)contact withCompletion:(CompletionBlock)completion andFailure:(ErrorBlock)errorBlock
+{
+    self.manager.requestSerializer = [BaseRequestSerializer serializer];
+    self.manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+    
+    NSDictionary *postDict = @{ @"From": kFromNumber, @"To": contact.phoneNumber , @"Body": message};
+    
+    [self.manager POST:[NSString stringWithFormat:@"2010-04-01/Accounts/%@/Messages", kAccountSid]
+            parameters:postDict
+               success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                   if (completion) {
+                       completion(responseObject);
+                   }
+               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                   if (errorBlock) {
+                       errorBlock(error);
+                   }
+               }];
 }
 
 @end

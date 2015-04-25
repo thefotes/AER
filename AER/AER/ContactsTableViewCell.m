@@ -25,6 +25,7 @@
 
 - (void)configureWithContact:(Contact *)contact
 {
+    _currentContact = contact;
     self.fullNameLabel.text = contact.fullName;
 }
 

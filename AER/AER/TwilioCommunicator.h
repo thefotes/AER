@@ -5,6 +5,7 @@
 //  Copyright (c) 2015 Peter Foti. All rights reserved.
 
 #import <Foundation/Foundation.h>
+@class Contact;
 
 typedef void (^CompletionBlock)(id obj);
 typedef void (^ErrorBlock)(NSError *error);
@@ -12,6 +13,8 @@ typedef void (^ErrorBlock)(NSError *error);
 @interface TwilioCommunicator : NSObject
 
 + (instancetype)sharedTwilioCommunicator;
+
+- (void)sendMessage:(NSString *)message toContact:(Contact *)contact withCompletion:(CompletionBlock)completion andFailure:(ErrorBlock)errorBlock;
 
 - (void)sendMessage:(NSString *)message toNumber:(NSString *)number withCompletion:(CompletionBlock)completion andFailure:(ErrorBlock)errorBlock;
 

@@ -14,6 +14,8 @@ typedef NS_ENUM(NSInteger, SpinnerState) {
 
 @interface ContactsTableViewCell : UITableViewCell
 
+@property (strong, nonatomic, readonly) Contact *currentContact;
+
 - (void)configureWithContact:(Contact *)contact;
 - (void)startSpinning;
 - (void)stopSpinningForState:(SpinnerState)state;
