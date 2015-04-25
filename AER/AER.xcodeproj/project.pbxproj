@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A9D75BC247DF8789031C1057 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1AF7DA540B3B02733D2E79 /* libPods.a */; };
+		D03FCB5C1AEB6761009F03C6 /* Warnings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D03FCB5B1AEB6761009F03C6 /* Warnings.xcconfig */; };
 		D0ED69AE1AEB5C88008EDA8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69AD1AEB5C88008EDA8B /* main.m */; };
 		D0ED69B11AEB5C88008EDA8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69B01AEB5C88008EDA8B /* AppDelegate.m */; };
 		D0ED69B41AEB5C88008EDA8B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69B31AEB5C88008EDA8B /* ViewController.m */; };
@@ -31,6 +32,7 @@
 		0BF037DAF71A50705492523C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5B1AF7DA540B3B02733D2E79 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA08DC4C7E3856CEF1DECD6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D03FCB5B1AEB6761009F03C6 /* Warnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Warnings.xcconfig; path = ../Warnings.xcconfig; sourceTree = "<group>"; };
 		D0ED69A81AEB5C88008EDA8B /* AER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0ED69AC1AEB5C88008EDA8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0ED69AD1AEB5C88008EDA8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		D0ED69AB1AEB5C88008EDA8B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D03FCB5B1AEB6761009F03C6 /* Warnings.xcconfig */,
 				D0ED69AC1AEB5C88008EDA8B /* Info.plist */,
 				D0ED69AD1AEB5C88008EDA8B /* main.m */,
 			);
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0ED69B71AEB5C88008EDA8B /* Main.storyboard in Resources */,
+				D03FCB5C1AEB6761009F03C6 /* Warnings.xcconfig in Resources */,
 				D0ED69BC1AEB5C88008EDA8B /* LaunchScreen.xib in Resources */,
 				D0ED69B91AEB5C88008EDA8B /* Images.xcassets in Resources */,
 			);
@@ -324,6 +328,7 @@
 /* Begin XCBuildConfiguration section */
 		D0ED69C91AEB5C88008EDA8B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BF037DAF71A50705492523C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -404,7 +409,7 @@
 		};
 		D0ED69CC1AEB5C88008EDA8B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BF037DAF71A50705492523C /* Pods.debug.xcconfig */;
+			baseConfigurationReference = D03FCB5B1AEB6761009F03C6 /* Warnings.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AER/Info.plist;
