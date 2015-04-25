@@ -6,6 +6,6 @@
 
 #import "AFURLRequestSerialization.h"
 
-@interface BaseRequestSerializer : AFJSONRequestSerializer
+@interface BaseRequestSerializer : AFHTTPRequestSerializer
 
 @end

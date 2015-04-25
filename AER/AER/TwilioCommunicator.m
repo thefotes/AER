@@ -9,9 +9,7 @@
 #import "URLFactory.h"
 #import "NSDate+FormattedDates.h"
 #import "BaseRequestSerializer.h"
-
-static NSString * const kAccountSID = @"AC40963c88c1b2510cd506f55cc6c89816";
-static NSString * const kAuthToken = @"8a757c581df51d708c84b06507e1f631";
+#import "StringConstants.h"
 
 @interface TwilioCommunicator ()
 
@@ -37,21 +35,23 @@ static NSString * const kAuthToken = @"8a757c581df51d708c84b06507e1f631";
     return _manager = _manager ?: [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[URLFactory TwilioURL]];
 }
 
-- (void)sendMessage:(NSString *)message toNumber:(NSString *)number withCompletion:(CompletionBlock)completon andFailure:(ErrorBlock)errorBlock
+- (void)sendMessage:(NSString *)message toNumber:(NSString *)number withCompletion:(CompletionBlock)completion andFailure:(ErrorBlock)errorBlock
 {
-    self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    self.manager.requestSerializer = [BaseRequestSerializer serializer];
     self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    NSDictionary *postDict = @{ @"From": @"13158492154", @"To": @"13152515028" , @"Body": @"Test"};
+    NSDictionary *postDict = @{ @"From": kFromNumber, @"To": number , @"Body": message};
     
-    [self.manager POST:[NSString stringWithFormat:@"%@/Accounts/%@/Messages", [NSDate RequestDateString], kAccountSID]
+    [self.manager POST:[NSString stringWithFormat:@"2010-04-01/Accounts/%@/Messages", kAccountSid]
             parameters:postDict
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                   NSLog(@"Response %@", responseObject);
+                   if (completion) {
+                       completion(responseObject);
+                   }
                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                   NSLog(@"%@", operation.response.allHeaderFields);
-                   NSString *string = [[NSString alloc] initWithData:error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
-                   NSLog(@"String %@", string);
+                   if (errorBlock) {
+                       errorBlock(error);
+                   }
                }];
     
 }

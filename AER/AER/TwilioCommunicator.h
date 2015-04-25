@@ -13,6 +13,6 @@ typedef void (^ErrorBlock)(NSError *error);
 
 + (instancetype)sharedTwilioCommunicator;
 
-- (void)sendMessage:(NSString *)message toNumber:(NSString *)number withCompletion:(CompletionBlock)completon andFailure:(ErrorBlock)errorBlock;
+- (void)sendMessage:(NSString *)message toNumber:(NSString *)number withCompletion:(CompletionBlock)completion andFailure:(ErrorBlock)errorBlock;
 
 @end

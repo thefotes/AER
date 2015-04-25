@@ -15,8 +15,8 @@
 
 - (IBAction)buttonPressed:(id)sender
 {
-    [[TwilioCommunicator sharedTwilioCommunicator] sendMessage:@""
-                                                      toNumber:@""
+    [[TwilioCommunicator sharedTwilioCommunicator] sendMessage:@"Hello Brian, how are you doing."
+                                                      toNumber:@"3152515028"
                                                 withCompletion:^(id obj) {
                                                 } andFailure:^(NSError *error) {
                                                 }];
