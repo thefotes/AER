@@ -13,6 +13,7 @@
 		D06CDE1A1AEBCE9E00B4F0B9 /* TwilioCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = D06CDE191AEBCE9E00B4F0B9 /* TwilioCommunicator.m */; };
 		D06CDE1F1AEBD1F900B4F0B9 /* NSDate+FormattedDates.m in Sources */ = {isa = PBXBuildFile; fileRef = D06CDE1E1AEBD1F900B4F0B9 /* NSDate+FormattedDates.m */; };
 		D06CDE201AEBD24300B4F0B9 /* NSDate+FormattedDates.m in Sources */ = {isa = PBXBuildFile; fileRef = D06CDE1E1AEBD1F900B4F0B9 /* NSDate+FormattedDates.m */; };
+		D0BDECF61AEBD97800BEE977 /* BaseRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BDECF51AEBD97800BEE977 /* BaseRequestSerializer.m */; };
 		D0ED69AE1AEB5C88008EDA8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69AD1AEB5C88008EDA8B /* main.m */; };
 		D0ED69B11AEB5C88008EDA8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69B01AEB5C88008EDA8B /* AppDelegate.m */; };
 		D0ED69B41AEB5C88008EDA8B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69B31AEB5C88008EDA8B /* ViewController.m */; };
@@ -43,6 +44,8 @@
 		D06CDE191AEBCE9E00B4F0B9 /* TwilioCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwilioCommunicator.m; sourceTree = "<group>"; };
 		D06CDE1D1AEBD1F900B4F0B9 /* NSDate+FormattedDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+FormattedDates.h"; sourceTree = "<group>"; };
 		D06CDE1E1AEBD1F900B4F0B9 /* NSDate+FormattedDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+FormattedDates.m"; sourceTree = "<group>"; };
+		D0BDECF41AEBD97800BEE977 /* BaseRequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequestSerializer.h; sourceTree = "<group>"; };
+		D0BDECF51AEBD97800BEE977 /* BaseRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequestSerializer.m; sourceTree = "<group>"; };
 		D0ED69A81AEB5C88008EDA8B /* AER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0ED69AC1AEB5C88008EDA8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0ED69AD1AEB5C88008EDA8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -121,6 +124,15 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		D0BDECF31AEBD96100BEE977 /* Serializers */ = {
+			isa = PBXGroup;
+			children = (
+				D0BDECF41AEBD97800BEE977 /* BaseRequestSerializer.h */,
+				D0BDECF51AEBD97800BEE977 /* BaseRequestSerializer.m */,
+			);
+			name = Serializers;
+			sourceTree = "<group>";
+		};
 		D0ED699F1AEB5C88008EDA8B = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +156,7 @@
 		D0ED69AA1AEB5C88008EDA8B /* AER */ = {
 			isa = PBXGroup;
 			children = (
+				D0BDECF31AEBD96100BEE977 /* Serializers */,
 				D06CDE1C1AEBD1E900B4F0B9 /* Categories */,
 				D0ED69AF1AEB5C88008EDA8B /* AppDelegate.h */,
 				D0ED69B01AEB5C88008EDA8B /* AppDelegate.m */,
@@ -324,6 +337,7 @@
 			files = (
 				D0ED69B41AEB5C88008EDA8B /* ViewController.m in Sources */,
 				D0ED69B11AEB5C88008EDA8B /* AppDelegate.m in Sources */,
+				D0BDECF61AEBD97800BEE977 /* BaseRequestSerializer.m in Sources */,
 				D06CDE1A1AEBCE9E00B4F0B9 /* TwilioCommunicator.m in Sources */,
 				D06CDE1F1AEBD1F900B4F0B9 /* NSDate+FormattedDates.m in Sources */,
 				D06CDE171AEBCE2D00B4F0B9 /* URLFactory.m in Sources */,
