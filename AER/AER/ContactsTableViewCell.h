@@ -7,8 +7,15 @@
 #import <UIKit/UIKit.h>
 @class Contact;
 
+typedef NS_ENUM(NSInteger, SpinnerState) {
+    SpinnerStateSuccessful,
+    SpinnerStateFailure
+};
+
 @interface ContactsTableViewCell : UITableViewCell
 
 - (void)configureWithContact:(Contact *)contact;
+- (void)startSpinning;
+- (void)stopSpinningForState:(SpinnerState)state;
 
 @end

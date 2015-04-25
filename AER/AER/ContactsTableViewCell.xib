@@ -14,22 +14,40 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7g-WC-Tnw">
-                        <rect key="frame" x="8" y="11" width="304" height="21"/>
+                        <rect key="frame" x="8" y="11" width="254" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tut-6t-fKN">
+                        <rect key="frame" x="292" y="11" width="20" height="20"/>
+                    </activityIndicatorView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="omo-Yx-EvW">
+                        <rect key="frame" x="281" y="8" width="31" height="22"/>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="tut-6t-fKN" secondAttribute="bottom" constant="12" id="5JV-nu-7Ty"/>
+                    <constraint firstAttribute="trailing" secondItem="tut-6t-fKN" secondAttribute="trailing" constant="8" id="DFV-fJ-pw2"/>
+                    <constraint firstAttribute="trailing" secondItem="omo-Yx-EvW" secondAttribute="trailing" constant="8" id="FNU-Sz-BFs"/>
+                    <constraint firstItem="tut-6t-fKN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="FpI-R5-Wvk"/>
+                    <constraint firstAttribute="bottom" secondItem="omo-Yx-EvW" secondAttribute="bottom" constant="13" id="J27-i2-9SA"/>
+                    <constraint firstItem="omo-Yx-EvW" firstAttribute="leading" secondItem="v7g-WC-Tnw" secondAttribute="trailing" constant="19" id="LYF-ph-crf"/>
                     <constraint firstItem="v7g-WC-Tnw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="NrF-he-eA8"/>
                     <constraint firstItem="v7g-WC-Tnw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="OAQ-fg-MQy"/>
+                    <constraint firstItem="tut-6t-fKN" firstAttribute="leading" secondItem="v7g-WC-Tnw" secondAttribute="trailing" constant="30" id="X58-SG-R6k"/>
+                    <constraint firstItem="omo-Yx-EvW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="bZP-oY-DWo"/>
                     <constraint firstAttribute="bottom" secondItem="v7g-WC-Tnw" secondAttribute="bottom" constant="11" id="idg-Wu-I70"/>
-                    <constraint firstAttribute="trailing" secondItem="v7g-WC-Tnw" secondAttribute="trailing" constant="8" id="kWg-6J-qEC"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="activityIndicator" destination="tut-6t-fKN" id="BKe-Pe-zM6"/>
+                <outlet property="checkmarkIcon" destination="omo-Yx-EvW" id="gK9-7b-ZJD"/>
                 <outlet property="fullNameLabel" destination="v7g-WC-Tnw" id="quK-Ih-A98"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="checkmark" width="28" height="26"/>
+    </resources>
 </document>

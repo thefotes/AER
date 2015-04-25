@@ -34,9 +34,14 @@
 {
     ContactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ContactsTableViewCell class])];
     
-    Contact *currentContact = self.contacts[(NSUInteger)indexPath.row];
+    Contact *newContact = [[Contact alloc] init];
+    newContact.firstName = @"Peter";
+    newContact.lastName = @"Foti";
     
-    [cell configureWithContact:currentContact];
+    [cell configureWithContact:newContact];
+//    Contact *currentContact = self.contacts[(NSUInteger)indexPath.row];
+//    
+//    [cell configureWithContact:currentContact];
     
     return cell;
 }
@@ -48,7 +53,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return (NSInteger)self.contacts.count;
+    return (NSInteger)1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -70,7 +75,15 @@
 
 - (void)notifyContactsFooterViewRequestNotificationOfContacts:(UITableViewHeaderFooterView *)view
 {
-    NSLog(@"Make request ot notify contacts");
+    NSArray *cells = [self.tableView visibleCells];
+    
+    for (ContactsTableViewCell *cell in cells) {
+        [cell startSpinning];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [cell stopSpinningForState:SpinnerStateSuccessful];
+        });
+    }
 }
 
 #pragma mark - Add Contact Delegate

@@ -10,14 +10,39 @@
 @interface ContactsTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *fullNameLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIImageView *checkmarkIcon;
 
 @end
 
 @implementation ContactsTableViewCell
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.activityIndicator.hidden = YES;
+}
+
 - (void)configureWithContact:(Contact *)contact
 {
     self.fullNameLabel.text = contact.fullName;
+}
+
+- (void)startSpinning
+{
+    self.activityIndicator.hidden = NO;
+    [self.activityIndicator startAnimating];
+}
+
+- (void)stopSpinningForState:(SpinnerState)state
+{
+    [self.activityIndicator stopAnimating];
+    self.activityIndicator.hidden = YES;
+    if (state == SpinnerStateSuccessful) {
+        self.checkmarkIcon.hidden = NO;
+    } else {
+        self.checkmarkIcon.hidden = YES;
+    }
 }
 
 @end
