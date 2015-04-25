@@ -22,6 +22,9 @@
 		D0BDED151AEC144500BEE977 /* NewSeizureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BDED141AEC144500BEE977 /* NewSeizureViewController.m */; };
 		D0BDED191AEC16F300BEE977 /* NotifyContactsFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BDED171AEC16F300BEE977 /* NotifyContactsFooterView.m */; };
 		D0BDED1A1AEC16F300BEE977 /* NotifyContactsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BDED181AEC16F300BEE977 /* NotifyContactsFooterView.xib */; };
+		D0BDED1D1AEC360600BEE977 /* WordCloudViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BDED1C1AEC360600BEE977 /* WordCloudViewController.m */; };
+		D0BDED211AEC366300BEE977 /* WordCloudCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BDED1F1AEC366300BEE977 /* WordCloudCollectionViewCell.m */; };
+		D0BDED221AEC366400BEE977 /* WordCloudCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BDED201AEC366300BEE977 /* WordCloudCollectionViewCell.xib */; };
 		D0ED69AE1AEB5C88008EDA8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69AD1AEB5C88008EDA8B /* main.m */; };
 		D0ED69B11AEB5C88008EDA8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69B01AEB5C88008EDA8B /* AppDelegate.m */; };
 		D0ED69B41AEB5C88008EDA8B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69B31AEB5C88008EDA8B /* ViewController.m */; };
@@ -69,6 +72,11 @@
 		D0BDED161AEC16F300BEE977 /* NotifyContactsFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifyContactsFooterView.h; sourceTree = "<group>"; };
 		D0BDED171AEC16F300BEE977 /* NotifyContactsFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifyContactsFooterView.m; sourceTree = "<group>"; };
 		D0BDED181AEC16F300BEE977 /* NotifyContactsFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotifyContactsFooterView.xib; sourceTree = "<group>"; };
+		D0BDED1B1AEC360600BEE977 /* WordCloudViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordCloudViewController.h; sourceTree = "<group>"; };
+		D0BDED1C1AEC360600BEE977 /* WordCloudViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordCloudViewController.m; sourceTree = "<group>"; };
+		D0BDED1E1AEC366300BEE977 /* WordCloudCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordCloudCollectionViewCell.h; sourceTree = "<group>"; };
+		D0BDED1F1AEC366300BEE977 /* WordCloudCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordCloudCollectionViewCell.m; sourceTree = "<group>"; };
+		D0BDED201AEC366300BEE977 /* WordCloudCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordCloudCollectionViewCell.xib; sourceTree = "<group>"; };
 		D0ED69A81AEB5C88008EDA8B /* AER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0ED69AC1AEB5C88008EDA8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0ED69AD1AEB5C88008EDA8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -163,6 +171,8 @@
 				D0BDED011AEC02A200BEE977 /* ContactsViewController.m */,
 				D0BDED131AEC144500BEE977 /* NewSeizureViewController.h */,
 				D0BDED141AEC144500BEE977 /* NewSeizureViewController.m */,
+				D0BDED1B1AEC360600BEE977 /* WordCloudViewController.h */,
+				D0BDED1C1AEC360600BEE977 /* WordCloudViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -179,6 +189,9 @@
 				D0BDED161AEC16F300BEE977 /* NotifyContactsFooterView.h */,
 				D0BDED171AEC16F300BEE977 /* NotifyContactsFooterView.m */,
 				D0BDED181AEC16F300BEE977 /* NotifyContactsFooterView.xib */,
+				D0BDED1E1AEC366300BEE977 /* WordCloudCollectionViewCell.h */,
+				D0BDED1F1AEC366300BEE977 /* WordCloudCollectionViewCell.m */,
+				D0BDED201AEC366300BEE977 /* WordCloudCollectionViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -345,6 +358,7 @@
 			files = (
 				D0ED69B71AEB5C88008EDA8B /* Main.storyboard in Resources */,
 				D03FCB5C1AEB6761009F03C6 /* Warnings.xcconfig in Resources */,
+				D0BDED221AEC366400BEE977 /* WordCloudCollectionViewCell.xib in Resources */,
 				D0ED69BC1AEB5C88008EDA8B /* LaunchScreen.xib in Resources */,
 				D0ED69B91AEB5C88008EDA8B /* Images.xcassets in Resources */,
 				D0BDED0E1AEC042100BEE977 /* ContactsFooterView.xib in Resources */,
@@ -400,8 +414,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0BDED1D1AEC360600BEE977 /* WordCloudViewController.m in Sources */,
 				D0BDED081AEC03B500BEE977 /* ContactsTableViewCell.m in Sources */,
 				D0BDECF91AEBE8AA00BEE977 /* StringConstants.m in Sources */,
+				D0BDED211AEC366300BEE977 /* WordCloudCollectionViewCell.m in Sources */,
 				D0BDED0D1AEC042100BEE977 /* ContactsFooterView.m in Sources */,
 				D0ED69B41AEB5C88008EDA8B /* ViewController.m in Sources */,
 				D0ED69B11AEB5C88008EDA8B /* AppDelegate.m in Sources */,

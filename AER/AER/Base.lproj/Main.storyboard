@@ -73,6 +73,7 @@
                     <connections>
                         <segue destination="yDM-ME-5cb" kind="relationship" relationship="viewControllers" id="T7d-t4-83f"/>
                         <segue destination="1fq-3d-UPp" kind="relationship" relationship="viewControllers" id="qrc-59-TJU"/>
+                        <segue destination="AY5-sX-rpy" kind="relationship" relationship="viewControllers" id="kxa-bT-eqZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DbE-5d-UU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -150,6 +151,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80h-cT-jiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1137" y="1082"/>
+        </scene>
+        <!--Cloud-->
+        <scene sceneID="KSr-dA-a2q">
+            <objects>
+                <viewController id="AY5-sX-rpy" customClass="WordCloudViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Qg-Yr-jy5"/>
+                        <viewControllerLayoutGuide type="bottom" id="fNv-hz-44e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4UO-UJ-Jfi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MLc-66-fqE">
+                                <rect key="frame" x="16" y="61" width="568" height="482"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dyY-Jm-y8T">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="F45-NW-xkU">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="AY5-sX-rpy" id="lXB-Jy-1t5"/>
+                                    <outlet property="delegate" destination="AY5-sX-rpy" id="h2b-vt-L0E"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Pain Points" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IH-ta-XGz">
+                                <rect key="frame" x="231" y="28" width="138" height="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MLc-66-fqE" firstAttribute="leading" secondItem="4UO-UJ-Jfi" secondAttribute="leading" constant="16" id="EEP-QZ-zAH"/>
+                            <constraint firstItem="0IH-ta-XGz" firstAttribute="top" secondItem="4Qg-Yr-jy5" secondAttribute="bottom" constant="8" id="HPk-Na-sF6"/>
+                            <constraint firstItem="MLc-66-fqE" firstAttribute="top" secondItem="0IH-ta-XGz" secondAttribute="bottom" constant="9" id="Naw-64-7PA"/>
+                            <constraint firstAttribute="centerX" secondItem="0IH-ta-XGz" secondAttribute="centerX" id="Rm1-aC-CZB"/>
+                            <constraint firstAttribute="trailing" secondItem="MLc-66-fqE" secondAttribute="trailing" constant="16" id="dek-ji-fpo"/>
+                            <constraint firstItem="fNv-hz-44e" firstAttribute="top" secondItem="MLc-66-fqE" secondAttribute="bottom" constant="8" id="enV-Lq-d7q"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Cloud" id="s6q-Og-V9V"/>
+                    <connections>
+                        <outlet property="collectionView" destination="MLc-66-fqE" id="ml2-Ya-VfC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Yt-0S-Fzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1949" y="1779"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
