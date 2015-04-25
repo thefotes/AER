@@ -16,6 +16,10 @@
 		D0BDECF61AEBD97800BEE977 /* BaseRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BDECF51AEBD97800BEE977 /* BaseRequestSerializer.m */; };
 		D0BDECF91AEBE8AA00BEE977 /* StringConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BDECF81AEBE8A900BEE977 /* StringConstants.m */; };
 		D0BDED021AEC02A200BEE977 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BDED011AEC02A200BEE977 /* ContactsViewController.m */; };
+		D0BDED081AEC03B500BEE977 /* ContactsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BDED061AEC03B500BEE977 /* ContactsTableViewCell.m */; };
+		D0BDED091AEC03B500BEE977 /* ContactsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BDED071AEC03B500BEE977 /* ContactsTableViewCell.xib */; };
+		D0BDED0D1AEC042100BEE977 /* ContactsFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BDED0B1AEC042100BEE977 /* ContactsFooterView.m */; };
+		D0BDED0E1AEC042100BEE977 /* ContactsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BDED0C1AEC042100BEE977 /* ContactsFooterView.xib */; };
 		D0ED69AE1AEB5C88008EDA8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69AD1AEB5C88008EDA8B /* main.m */; };
 		D0ED69B11AEB5C88008EDA8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69B01AEB5C88008EDA8B /* AppDelegate.m */; };
 		D0ED69B41AEB5C88008EDA8B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69B31AEB5C88008EDA8B /* ViewController.m */; };
@@ -52,6 +56,12 @@
 		D0BDECF81AEBE8A900BEE977 /* StringConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringConstants.m; sourceTree = "<group>"; };
 		D0BDED001AEC02A200BEE977 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
 		D0BDED011AEC02A200BEE977 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		D0BDED051AEC03B500BEE977 /* ContactsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsTableViewCell.h; sourceTree = "<group>"; };
+		D0BDED061AEC03B500BEE977 /* ContactsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsTableViewCell.m; sourceTree = "<group>"; };
+		D0BDED071AEC03B500BEE977 /* ContactsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsTableViewCell.xib; sourceTree = "<group>"; };
+		D0BDED0A1AEC042100BEE977 /* ContactsFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsFooterView.h; sourceTree = "<group>"; };
+		D0BDED0B1AEC042100BEE977 /* ContactsFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsFooterView.m; sourceTree = "<group>"; };
+		D0BDED0C1AEC042100BEE977 /* ContactsFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsFooterView.xib; sourceTree = "<group>"; };
 		D0ED69A81AEB5C88008EDA8B /* AER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0ED69AC1AEB5C88008EDA8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0ED69AD1AEB5C88008EDA8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -150,6 +160,19 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		D0BDED041AEC03A500BEE977 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D0BDED051AEC03B500BEE977 /* ContactsTableViewCell.h */,
+				D0BDED061AEC03B500BEE977 /* ContactsTableViewCell.m */,
+				D0BDED071AEC03B500BEE977 /* ContactsTableViewCell.xib */,
+				D0BDED0A1AEC042100BEE977 /* ContactsFooterView.h */,
+				D0BDED0B1AEC042100BEE977 /* ContactsFooterView.m */,
+				D0BDED0C1AEC042100BEE977 /* ContactsFooterView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		D0ED699F1AEB5C88008EDA8B = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +196,7 @@
 		D0ED69AA1AEB5C88008EDA8B /* AER */ = {
 			isa = PBXGroup;
 			children = (
+				D0BDED041AEC03A500BEE977 /* Views */,
 				D0BDED031AEC02B800BEE977 /* View Controllers */,
 				D0BDECF31AEBD96100BEE977 /* Serializers */,
 				D06CDE1C1AEBD1E900B4F0B9 /* Categories */,
@@ -303,6 +327,8 @@
 				D03FCB5C1AEB6761009F03C6 /* Warnings.xcconfig in Resources */,
 				D0ED69BC1AEB5C88008EDA8B /* LaunchScreen.xib in Resources */,
 				D0ED69B91AEB5C88008EDA8B /* Images.xcassets in Resources */,
+				D0BDED0E1AEC042100BEE977 /* ContactsFooterView.xib in Resources */,
+				D0BDED091AEC03B500BEE977 /* ContactsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +379,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0BDED081AEC03B500BEE977 /* ContactsTableViewCell.m in Sources */,
 				D0BDECF91AEBE8AA00BEE977 /* StringConstants.m in Sources */,
+				D0BDED0D1AEC042100BEE977 /* ContactsFooterView.m in Sources */,
 				D0ED69B41AEB5C88008EDA8B /* ViewController.m in Sources */,
 				D0ED69B11AEB5C88008EDA8B /* AppDelegate.m in Sources */,
 				D0BDECF61AEBD97800BEE977 /* BaseRequestSerializer.m in Sources */,
