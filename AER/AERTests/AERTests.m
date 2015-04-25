@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import "NSDate+FormattedDates.h"
 
 @interface AERTests : XCTestCase
 
@@ -24,13 +23,6 @@
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
-}
-
-- (void)testThatDatesAreReturnedProperly
-{
-    NSString *dateString = [NSDate RequestDateString];
-    
-    XCTAssert([dateString isEqualToString:@"2015-04-25"]);
 }
 
 @end

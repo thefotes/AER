@@ -7,7 +7,6 @@
 #import "TwilioCommunicator.h"
 #import <AFNetworking/AFNetworking.h>
 #import "URLFactory.h"
-#import "NSDate+FormattedDates.h"
 #import "BaseRequestSerializer.h"
 #import "StringConstants.h"
 

@@ -4,8 +4,9 @@
 
 #import "ContactsViewController.h"
 #import "ContactsFooterView.h"
+@import AddressBookUI;
 
-@interface ContactsViewController () <UITableViewDelegate, UITableViewDataSource, ContactsFooterDelegate>
+@interface ContactsViewController () <UITableViewDelegate, UITableViewDataSource, ContactsFooterDelegate, ABPeoplePickerNavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *mockData;
@@ -52,7 +53,32 @@
 
 - (void)footerViewRequestAddContact:(UITableViewHeaderFooterView *)view
 {
-    NSLog(@"%@", view);
+    ABPeoplePickerNavigationController *navController = [[ABPeoplePickerNavigationController alloc] init];
+    navController.peoplePickerDelegate = self;
+    
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
+- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person
+{
+    NSMutableArray *mobilePhones = [NSMutableArray arrayWithCapacity:0];
+    
+    ABMultiValueRef phones = ABRecordCopyValue(person, kABPersonPhoneProperty);
+    NSArray *allPhoneNumbers = (NSArray *)CFBridgingRelease(ABMultiValueCopyArrayOfAllValues(phones));
+    
+    for (NSUInteger i = 0; i < [allPhoneNumbers count]; i++) {
+        if ([(NSString *)CFBridgingRelease(ABMultiValueCopyLabelAtIndex(phones, (long)i)) isEqualToString:(NSString *)kABPersonPhoneMobileLabel]) {
+            [mobilePhones addObject:CFBridgingRelease(ABMultiValueCopyValueAtIndex(phones, (long)i))];
+        }
+        if ([(NSString *)CFBridgingRelease(ABMultiValueCopyLabelAtIndex(phones, (long)i)) isEqualToString:(NSString *)kABPersonPhoneIPhoneLabel]) {
+            [mobilePhones addObject:CFBridgingRelease(ABMultiValueCopyValueAtIndex(phones, (long)i))];
+        }
+    }
+    
+    CFRelease(phones);
+    
+    NSLog(@"%@", [mobilePhones firstObject]);
+    
 }
 
 @end
