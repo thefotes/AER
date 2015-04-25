@@ -8,10 +8,28 @@
 
 #import "WordCloudCollectionViewCell.h"
 
+@interface WordCloudCollectionViewCell ()
+
+@property (weak, nonatomic) IBOutlet UILabel *painLabel;
+
+@end
+
 @implementation WordCloudCollectionViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (void)configureWithString:(NSString *)string
+{
+    self.painLabel.text = string;
+}
+
+- (void)setSelected:(BOOL)selected
+{
+    [super setSelected:selected];
+    
+    if (selected) {
+        self.backgroundColor = [UIColor redColor];
+    } else {
+        self.backgroundColor = [UIColor whiteColor];
+    }
 }
 
 @end

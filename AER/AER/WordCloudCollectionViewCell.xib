@@ -21,12 +21,15 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="mmW-LO-YRy" secondAttribute="centerY" id="9wm-wc-jRL"/>
                 <constraint firstAttribute="centerX" secondItem="mmW-LO-YRy" secondAttribute="centerX" id="rem-qS-CcJ"/>
             </constraints>
             <size key="customSize" width="96" height="76"/>
+            <connections>
+                <outlet property="painLabel" destination="mmW-LO-YRy" id="oSa-L0-Z7p"/>
+            </connections>
             <point key="canvasLocation" x="348" y="394"/>
         </collectionViewCell>
     </objects>

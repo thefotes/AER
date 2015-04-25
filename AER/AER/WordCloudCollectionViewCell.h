@@ -10,4 +10,6 @@
 
 @interface WordCloudCollectionViewCell : UICollectionViewCell
 
+- (void)configureWithString:(NSString *)string;
+
 @end
