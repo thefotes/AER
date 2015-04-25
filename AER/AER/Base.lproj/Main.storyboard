@@ -45,7 +45,7 @@
         <!--View Controller-->
         <scene sceneID="9oD-h2-KUJ">
             <objects>
-                <viewController id="wJy-W4-x0V" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="contactDetails" id="wJy-W4-x0V" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5hd-7X-NuQ"/>
                         <viewControllerLayoutGuide type="bottom" id="SdO-eU-MzO"/>

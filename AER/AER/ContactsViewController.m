@@ -4,12 +4,15 @@
 
 #import "ContactsViewController.h"
 #import "ContactsFooterView.h"
+#import "Contact.h"
+#import "ContactsTableViewCell.h"
+
 @import AddressBookUI;
 
 @interface ContactsViewController () <UITableViewDelegate, UITableViewDataSource, ContactsFooterDelegate, ABPeoplePickerNavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *mockData;
+@property (strong, nonatomic) NSMutableArray *contacts;
 
 @end
 
@@ -18,17 +21,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ContactsTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ContactsTableViewCell class])];
 }
 
-- (NSArray *)mockData
+- (NSMutableArray *)contacts
 {
-    return _mockData = _mockData ?: @[@"Peter", @"Brian", @"Oren"];
+    return _contacts = _contacts ?: [NSMutableArray new];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    cell.textLabel.text = self.mockData[(NSUInteger)indexPath.row];
+    ContactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ContactsTableViewCell class])];
+    
+    Contact *currentContact = self.contacts[(NSUInteger)indexPath.row];
+    
+    [cell configureWithContact:currentContact];
     
     return cell;
 }
@@ -40,7 +47,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return (NSInteger)self.mockData.count;
+    return (NSInteger)self.contacts.count;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -61,24 +68,45 @@
 
 - (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person
 {
-    NSMutableArray *mobilePhones = [NSMutableArray arrayWithCapacity:0];
+    NSMutableDictionary* dictionary = [NSMutableDictionary dictionary];
     
-    ABMultiValueRef phones = ABRecordCopyValue(person, kABPersonPhoneProperty);
-    NSArray *allPhoneNumbers = (NSArray *)CFBridgingRelease(ABMultiValueCopyArrayOfAllValues(phones));
-    
-    for (NSUInteger i = 0; i < [allPhoneNumbers count]; i++) {
-        if ([(NSString *)CFBridgingRelease(ABMultiValueCopyLabelAtIndex(phones, (long)i)) isEqualToString:(NSString *)kABPersonPhoneMobileLabel]) {
-            [mobilePhones addObject:CFBridgingRelease(ABMultiValueCopyValueAtIndex(phones, (long)i))];
-        }
-        if ([(NSString *)CFBridgingRelease(ABMultiValueCopyLabelAtIndex(phones, (long)i)) isEqualToString:(NSString *)kABPersonPhoneIPhoneLabel]) {
-            [mobilePhones addObject:CFBridgingRelease(ABMultiValueCopyValueAtIndex(phones, (long)i))];
+    for ( int32_t propertyIndex = kABPersonFirstNameProperty; propertyIndex <= kABPersonSocialProfileProperty; propertyIndex ++ )
+    {
+        NSString* propertyName = CFBridgingRelease(ABPersonCopyLocalizedPropertyName(propertyIndex));
+        id value = CFBridgingRelease(ABRecordCopyValue(person, propertyIndex));
+        
+        NSMutableArray *mobilePhones = [NSMutableArray arrayWithCapacity:0];
+        
+        if ([propertyName isEqualToString:@"Phone"]) {
+            ABMultiValueRef phones = (__bridge ABMultiValueRef)(value);
+            NSArray *allPhoneNumbers = (NSArray *)CFBridgingRelease(ABMultiValueCopyArrayOfAllValues(phones));
+            
+            for (NSUInteger i = 0; i < [allPhoneNumbers count]; i++) {
+                if ([(NSString *)CFBridgingRelease(ABMultiValueCopyLabelAtIndex(phones, (long)i)) isEqualToString:(NSString *)kABPersonPhoneMobileLabel]) {
+                    [mobilePhones addObject:CFBridgingRelease(ABMultiValueCopyValueAtIndex(phones, (long)i))];
+                }
+                if ([(NSString *)CFBridgingRelease(ABMultiValueCopyLabelAtIndex(phones, (long)i)) isEqualToString:(NSString *)kABPersonPhoneIPhoneLabel]) {
+                    [mobilePhones addObject:CFBridgingRelease(ABMultiValueCopyValueAtIndex(phones, (long)i))];
+                }
+            }
+            
+            NSString *rawNumber = [mobilePhones firstObject];
+            NSString *cleanNumber = [[rawNumber componentsSeparatedByCharactersInSet:
+                                      [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
+                                     componentsJoinedByString:@""];
+            dictionary[propertyName] = cleanNumber;
+  
+        } else {
+            if ( value )
+                [dictionary setObject:value forKey:propertyName];
         }
     }
     
-    CFRelease(phones);
+    Contact *newContact = [[Contact alloc] initWithDictionary:dictionary];
     
-    NSLog(@"%@", [mobilePhones firstObject]);
+    [self.contacts addObject:newContact];
     
+    [self.tableView reloadData];
 }
 
 @end
