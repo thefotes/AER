@@ -6,10 +6,11 @@
 #import "ContactsFooterView.h"
 #import "Contact.h"
 #import "ContactsTableViewCell.h"
+#import "NotifyContactsFooterView.h"
 
 @import AddressBookUI;
 
-@interface ContactsViewController () <UITableViewDelegate, UITableViewDataSource, ContactsFooterDelegate, ABPeoplePickerNavigationControllerDelegate>
+@interface ContactsViewController () <UITableViewDelegate, UITableViewDataSource, ContactsFooterDelegate, ABPeoplePickerNavigationControllerDelegate, NotificationDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *contacts;
@@ -52,11 +53,27 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    ContactsFooterView *footerView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ContactsFooterView class]) owner:nil options:nil] firstObject];
-    footerView.footerDelegate = self;
-    
-    return footerView;
+    if (self.isSeizureFlow) {
+        NotifyContactsFooterView *footerView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([NotifyContactsFooterView class]) owner:nil options:nil] firstObject];
+        footerView.notificationDelegate = self;
+        
+        return footerView;
+    } else {
+        ContactsFooterView *footerView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ContactsFooterView class]) owner:nil options:nil] firstObject];
+        footerView.footerDelegate = self;
+        
+        return footerView;
+    }
 }
+
+#pragma mark - Notification Delegate
+
+- (void)notifyContactsFooterViewRequestNotificationOfContacts:(UITableViewHeaderFooterView *)view
+{
+    NSLog(@"Make request ot notify contacts");
+}
+
+#pragma mark - Add Contact Delegate
 
 - (void)footerViewRequestAddContact:(UITableViewHeaderFooterView *)view
 {

@@ -72,6 +72,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="yDM-ME-5cb" kind="relationship" relationship="viewControllers" id="T7d-t4-83f"/>
+                        <segue destination="1fq-3d-UPp" kind="relationship" relationship="viewControllers" id="qrc-59-TJU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DbE-5d-UU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -97,5 +98,61 @@
             </objects>
             <point key="canvasLocation" x="1137" y="363"/>
         </scene>
+        <!--New Seizure View Controller-->
+        <scene sceneID="tIb-1t-3Yy">
+            <objects>
+                <viewController id="RcS-VC-h0V" customClass="NewSeizureViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cJj-kN-ge7"/>
+                        <viewControllerLayoutGuide type="bottom" id="RbI-TF-4DW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gnj-dm-2ca">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1m-JO-SfG">
+                                <rect key="frame" x="231" y="285" width="138" height="30"/>
+                                <state key="normal" title="I Just Had a Seizure">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="goToContacts" id="lem-tS-aIe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="p1m-JO-SfG" secondAttribute="centerY" id="XZH-Hk-sK8"/>
+                            <constraint firstAttribute="centerX" secondItem="p1m-JO-SfG" secondAttribute="centerX" id="Zr4-gL-tZd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Et1-7M-wPp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y6w-c6-md8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1949" y="1082"/>
+        </scene>
+        <!--Record-->
+        <scene sceneID="5CH-Za-k1e">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1fq-3d-UPp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Record" id="5c7-Zu-rJp"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Axo-yp-SiL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RcS-VC-h0V" kind="relationship" relationship="rootViewController" id="sgE-MH-O6i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="80h-cT-jiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1137" y="1082"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lem-tS-aIe"/>
+    </inferredMetricsTieBreakers>
 </document>
