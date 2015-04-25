@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9D75BC247DF8789031C1057 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1AF7DA540B3B02733D2E79 /* libPods.a */; };
 		D0ED69AE1AEB5C88008EDA8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69AD1AEB5C88008EDA8B /* main.m */; };
 		D0ED69B11AEB5C88008EDA8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69B01AEB5C88008EDA8B /* AppDelegate.m */; };
 		D0ED69B41AEB5C88008EDA8B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED69B31AEB5C88008EDA8B /* ViewController.m */; };
@@ -27,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BF037DAF71A50705492523C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		5B1AF7DA540B3B02733D2E79 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BA08DC4C7E3856CEF1DECD6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D0ED69A81AEB5C88008EDA8B /* AER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0ED69AC1AEB5C88008EDA8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0ED69AD1AEB5C88008EDA8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D75BC247DF8789031C1057 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +65,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32AABE3D41D536659C7FF418 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B1AF7DA540B3B02733D2E79 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F883B62F234F8BB4FA854DE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0BF037DAF71A50705492523C /* Pods.debug.xcconfig */,
+				6BA08DC4C7E3856CEF1DECD6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D0ED699F1AEB5C88008EDA8B = {
 			isa = PBXGroup;
 			children = (
 				D0ED69AA1AEB5C88008EDA8B /* AER */,
 				D0ED69C41AEB5C88008EDA8B /* AERTests */,
 				D0ED69A91AEB5C88008EDA8B /* Products */,
+				3F883B62F234F8BB4FA854DE /* Pods */,
+				32AABE3D41D536659C7FF418 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0ED69CB1AEB5C88008EDA8B /* Build configuration list for PBXNativeTarget "AER" */;
 			buildPhases = (
+				AC8CA00A9EE64948583279EC /* Check Pods Manifest.lock */,
 				D0ED69A41AEB5C88008EDA8B /* Sources */,
 				D0ED69A51AEB5C88008EDA8B /* Frameworks */,
 				D0ED69A61AEB5C88008EDA8B /* Resources */,
+				DA1F287C05C0A97CB67EC804 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +239,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AC8CA00A9EE64948583279EC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DA1F287C05C0A97CB67EC804 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D0ED69A41AEB5C88008EDA8B /* Sources */ = {
@@ -345,6 +404,7 @@
 		};
 		D0ED69CC1AEB5C88008EDA8B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BF037DAF71A50705492523C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AER/Info.plist;
@@ -355,6 +415,7 @@
 		};
 		D0ED69CD1AEB5C88008EDA8B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BA08DC4C7E3856CEF1DECD6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AER/Info.plist;
@@ -416,6 +477,7 @@
 				D0ED69CD1AEB5C88008EDA8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0ED69CE1AEB5C88008EDA8B /* Build configuration list for PBXNativeTarget "AERTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +486,7 @@
 				D0ED69D01AEB5C88008EDA8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
