@@ -84,7 +84,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="yDM-ME-5cb" kind="relationship" relationship="viewControllers" id="T7d-t4-83f"/>
-                        <segue destination="ZdP-zI-zBs" kind="relationship" relationship="viewControllers" id="jd5-07-ubs"/>
+                        <segue destination="bbe-t0-fJH" kind="relationship" relationship="viewControllers" id="RGG-6f-T0V"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DbE-5d-UU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -247,7 +247,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jeZ-qN-68S">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellID" id="PYn-Kz-tc0">
@@ -266,27 +266,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jeZ-qN-68S" firstAttribute="top" secondItem="Ace-ff-IaO" secondAttribute="bottom" id="1u4-O8-b8g"/>
-                            <constraint firstItem="jeZ-qN-68S" firstAttribute="bottom" secondItem="Bas-Gh-eWW" secondAttribute="top" id="4pj-X7-Y3c"/>
-                            <constraint firstAttribute="trailing" secondItem="jeZ-qN-68S" secondAttribute="trailing" id="C7E-0U-aJZ"/>
-                            <constraint firstItem="jeZ-qN-68S" firstAttribute="top" secondItem="Ace-ff-IaO" secondAttribute="bottom" constant="-20" id="IuI-Fw-MPF"/>
-                            <constraint firstItem="jeZ-qN-68S" firstAttribute="top" secondItem="Ace-ff-IaO" secondAttribute="bottom" constant="-20" id="J5y-XK-l0m"/>
-                            <constraint firstItem="jeZ-qN-68S" firstAttribute="leading" secondItem="n1I-hb-GKu" secondAttribute="leading" id="jTl-Aa-snP"/>
+                            <constraint firstItem="jeZ-qN-68S" firstAttribute="top" secondItem="n1I-hb-GKu" secondAttribute="top" id="F8d-zN-UcJ"/>
+                            <constraint firstItem="jeZ-qN-68S" firstAttribute="leading" secondItem="n1I-hb-GKu" secondAttribute="leading" id="Fih-UF-jNb"/>
+                            <constraint firstItem="Bas-Gh-eWW" firstAttribute="top" secondItem="jeZ-qN-68S" secondAttribute="bottom" id="ny2-rn-MZA"/>
+                            <constraint firstAttribute="trailing" secondItem="jeZ-qN-68S" secondAttribute="trailing" id="yoN-J2-nEy"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="IuI-Fw-MPF"/>
-                                <exclude reference="J5y-XK-l0m"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="jeZ-qN-68S" id="7sQ-Ed-SGr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sQ2-bf-cnM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2461" y="1096"/>
         </scene>
-        <!--List Container View Controller-->
+        <!--Pain Points-->
         <scene sceneID="Xyb-pn-Z9o">
             <objects>
                 <viewController id="bbe-t0-fJH" customClass="ListContainerViewController" sceneMemberID="viewController">
@@ -299,30 +294,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Pain Points" image="sample-1040-checkmark" id="HPi-gy-K6K"/>
                     <navigationItem key="navigationItem" id="HPl-al-SfU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wBK-k1-ua2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1137" y="1096"/>
-        </scene>
-        <!--Pain Points-->
-        <scene sceneID="75f-no-PsP">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZdP-zI-zBs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pain Points" image="sample-1040-checkmark" id="hyS-2u-lO8"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dYk-eS-wZc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="bbe-t0-fJH" kind="relationship" relationship="rootViewController" id="VSR-Kc-HJj"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ygx-Vc-5Ea" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="325" y="1096"/>
+            <point key="canvasLocation" x="325" y="1067"/>
         </scene>
     </scenes>
     <resources>

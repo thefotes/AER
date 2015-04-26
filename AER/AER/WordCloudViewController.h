@@ -10,7 +10,7 @@
 
 @protocol WordCloudViewControllerDelegate <NSObject>
 
-- (void)wordCloudViewController:(WordCloudViewController *)wordCloudVC tappedItemTitle:(NSString *)title;
+- (void)wordCloudViewController:(WordCloudViewController *)wordCloudVC butonTapped:(UIButton *)sender;
 
 @end
 

@@ -14,14 +14,20 @@
 
 @property (nonatomic, strong) WordCloudViewController *wordCloudVC;
 @property (nonatomic, strong) TaskViewController *taskVC;
+@property (nonatomic, weak) IBOutlet UIView *containerView;
 
 @end
 
 @implementation ListContainerViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self addChildVC:self.wordCloudVC withTitle:@"Pain Points"];
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.wordCloudVC];
+    navController.view.frame = self.view.bounds;
+    [self addChildViewController:navController];
+    [self.view addSubview:navController.view];
+    [navController didMoveToParentViewController:self];
 }
 
 - (WordCloudViewController *)wordCloudVC
@@ -42,35 +48,39 @@
     return _taskVC;
 }
 
-- (void)addChildVC:(UIViewController *)childVC withTitle:(NSString *)title
+- (void)wordCloudViewController:(WordCloudViewController *)wordCloudVC butonTapped:(UIButton *)sender
 {
-    if (self.childViewControllers.count) {
-        UIViewController *viewController = (UIViewController *)self.childViewControllers[0];
-        [viewController willMoveToParentViewController:nil];
-    }
+    UINavigationController *currentChild = self.childViewControllers[0];
+    UINavigationController *nextChild = [[UINavigationController alloc] initWithRootViewController:self.taskVC];
+    self.taskVC.title = sender.titleLabel.text;
     
-    [childVC setValue:self forKey:@"delegate"];
-    childVC.view.frame = self.view.bounds;
-    [self addChildViewController:childVC];
-    [self.view addSubview:childVC.view];
-    [childVC didMoveToParentViewController:self];
+    nextChild.view.frame = self.view.bounds;
+    [self addChildViewController:nextChild];
+    [currentChild willMoveToParentViewController:nil];
     
-    self.title = title;
-}
-
-- (void)wordCloudViewController:(WordCloudViewController *)wordCloudVC tappedItemTitle:(NSString *)title
-{
-    [UIView transitionFromView:self.view toView:self.view duration:1.0 options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished) {
-        [self addChildVC:self.taskVC withTitle:title];
+    [self transitionFromViewController:currentChild toViewController:nextChild duration:0.5 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+        
+    } completion:^(BOOL finished) {
+        [currentChild removeFromParentViewController];
+        [nextChild didMoveToParentViewController:self];
     }];
 }
 
 - (void)taskViewController:(TaskViewController *)taskVC doneButtonTapped:(UIButton *)sender
 {
-    [self addChildVC:self.wordCloudVC withTitle:@"Pain Points"];
+    UINavigationController *currentChild = self.childViewControllers[0];
+    UINavigationController *nextChild = [[UINavigationController alloc] initWithRootViewController:self.wordCloudVC];
+    
+    nextChild.view.frame = self.view.bounds;
+    [self addChildViewController:nextChild];
+    [currentChild willMoveToParentViewController:nil];
+    
+    [self transitionFromViewController:currentChild toViewController:nextChild duration:0.5 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+        
+    } completion:^(BOOL finished) {
+        [currentChild removeFromParentViewController];
+        [nextChild didMoveToParentViewController:self];
+    }];
 }
-
-
-
 
 @end

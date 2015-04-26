@@ -18,6 +18,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Pain Points";
     
     for (UIButton *button in self.buttons) {
         button.layer.borderColor = button.tintColor.CGColor;
@@ -26,9 +27,15 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar.layer removeAllAnimations];
+}
+
 - (IBAction)buttonTapped:(UIButton *)sender
 {
-    [self.delegate wordCloudViewController:self tappedItemTitle:sender.titleLabel.text];
+    [self.delegate wordCloudViewController:self butonTapped:sender];
 }
 
 @end
