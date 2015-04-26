@@ -26,4 +26,9 @@
     }
 }
 
+- (IBAction)buttonTapped:(UIButton *)sender
+{
+    [self.delegate wordCloudViewController:self tappedItemTitle:sender.titleLabel.text];
+}
+
 @end

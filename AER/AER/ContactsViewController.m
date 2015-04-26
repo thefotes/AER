@@ -105,7 +105,7 @@
 
 - (NSString *)messageForContact:(Contact *)contact
 {
-    return [NSString stringWithFormat:@"%@, I recently had a seizure and I'll be needing your help in the coming days. Thanks in advance.", contact.firstName];
+    return [NSString stringWithFormat:@"%@, I recently had an epileptic seizure and I'll be needing assistance in the coming days. Please take a look at the AER app for ways that you can help. Thanks in advance.", contact.firstName];
 }
 
 @end

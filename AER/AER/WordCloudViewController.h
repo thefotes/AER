@@ -6,6 +6,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class WordCloudViewController;
+
+@protocol WordCloudViewControllerDelegate <NSObject>
+
+- (void)wordCloudViewController:(WordCloudViewController *)wordCloudVC tappedItemTitle:(NSString *)title;
+
+@end
+
 @interface WordCloudViewController : UIViewController
+
+@property (nonatomic, weak) id<WordCloudViewControllerDelegate> delegate;
 
 @end
