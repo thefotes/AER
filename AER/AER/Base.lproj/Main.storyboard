@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iG6-Zv-kYE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Contacts-->
@@ -121,51 +122,100 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MLc-66-fqE">
-                                <rect key="frame" x="16" y="61" width="568" height="482"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dyY-Jm-y8T">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="F45-NW-xkU">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="AY5-sX-rpy" id="lXB-Jy-1t5"/>
-                                    <outlet property="delegate" destination="AY5-sX-rpy" id="h2b-vt-L0E"/>
-                                </connections>
-                            </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select Pain Points" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IH-ta-XGz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Pain Points" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IH-ta-XGz">
                                 <rect key="frame" x="231" y="28" width="138" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxB-3K-4qQ">
+                                <rect key="frame" x="16" y="72" width="125" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="nDH-Y9-dDM"/>
+                                    <constraint firstAttribute="height" constant="75" id="ziP-oW-Ur7"/>
+                                </constraints>
+                                <state key="normal" title="Fitness">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cef-7R-Kmd">
+                                <rect key="frame" x="16" y="155" width="125" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="PV9-FE-fod"/>
+                                    <constraint firstAttribute="width" constant="125" id="uxF-Zv-uQL"/>
+                                </constraints>
+                                <state key="normal" title="Physical">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2Q-Xn-1oB">
+                                <rect key="frame" x="16" y="238" width="125" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="WRk-9m-fu5"/>
+                                    <constraint firstAttribute="height" constant="75" id="u4j-xV-x27"/>
+                                </constraints>
+                                <state key="normal" title="Food">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YcU-FU-R77">
+                                <rect key="frame" x="459" y="72" width="125" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="ADz-0I-aLZ"/>
+                                    <constraint firstAttribute="height" constant="75" id="Trd-v9-9mm"/>
+                                </constraints>
+                                <state key="normal" title="Mental">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KgY-db-tVs">
+                                <rect key="frame" x="459" y="155" width="125" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Buv-H8-a0P"/>
+                                    <constraint firstAttribute="width" constant="125" id="HpD-lm-lzT"/>
+                                </constraints>
+                                <state key="normal" title="Emotional">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRF-4t-b1r">
+                                <rect key="frame" x="459" y="238" width="125" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="7uq-Gz-FOH"/>
+                                    <constraint firstAttribute="height" constant="75" id="WrS-gZ-mek"/>
+                                </constraints>
+                                <state key="normal" title="Work">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MLc-66-fqE" firstAttribute="leading" secondItem="4UO-UJ-Jfi" secondAttribute="leading" constant="16" id="EEP-QZ-zAH"/>
-                            <constraint firstItem="0IH-ta-XGz" firstAttribute="top" secondItem="4Qg-Yr-jy5" secondAttribute="bottom" constant="8" id="HPk-Na-sF6"/>
-                            <constraint firstItem="MLc-66-fqE" firstAttribute="top" secondItem="0IH-ta-XGz" secondAttribute="bottom" constant="9" id="Naw-64-7PA"/>
-                            <constraint firstAttribute="centerX" secondItem="0IH-ta-XGz" secondAttribute="centerX" id="Rm1-aC-CZB"/>
-                            <constraint firstAttribute="trailing" secondItem="MLc-66-fqE" secondAttribute="trailing" constant="16" id="dek-ji-fpo"/>
-                            <constraint firstItem="fNv-hz-44e" firstAttribute="top" secondItem="MLc-66-fqE" secondAttribute="bottom" constant="8" id="enV-Lq-d7q"/>
+                            <constraint firstItem="l2Q-Xn-1oB" firstAttribute="leading" secondItem="4UO-UJ-Jfi" secondAttribute="leadingMargin" id="2SF-55-gC4"/>
+                            <constraint firstItem="LRF-4t-b1r" firstAttribute="leading" relation="lessThanOrEqual" secondItem="l2Q-Xn-1oB" secondAttribute="trailing" constant="318" id="3ek-1j-gjQ"/>
+                            <constraint firstItem="l2Q-Xn-1oB" firstAttribute="top" secondItem="cef-7R-Kmd" secondAttribute="bottom" constant="8" id="8mS-wz-bf7"/>
+                            <constraint firstItem="LRF-4t-b1r" firstAttribute="top" secondItem="KgY-db-tVs" secondAttribute="bottom" constant="8" id="DS5-4V-c7q"/>
+                            <constraint firstItem="YcU-FU-R77" firstAttribute="trailing" secondItem="4UO-UJ-Jfi" secondAttribute="trailingMargin" id="Gdz-jq-YAf"/>
+                            <constraint firstItem="LRF-4t-b1r" firstAttribute="trailing" secondItem="4UO-UJ-Jfi" secondAttribute="trailingMargin" id="Imy-JB-63O"/>
+                            <constraint firstItem="KgY-db-tVs" firstAttribute="leading" relation="lessThanOrEqual" secondItem="cef-7R-Kmd" secondAttribute="trailing" constant="318" id="Ith-wj-VHk"/>
+                            <constraint firstItem="KgY-db-tVs" firstAttribute="trailing" secondItem="4UO-UJ-Jfi" secondAttribute="trailingMargin" id="M4y-8H-7Ak"/>
+                            <constraint firstItem="YcU-FU-R77" firstAttribute="leading" relation="lessThanOrEqual" secondItem="rxB-3K-4qQ" secondAttribute="trailing" constant="318" id="V9U-hG-YQ6"/>
+                            <constraint firstItem="cef-7R-Kmd" firstAttribute="top" secondItem="rxB-3K-4qQ" secondAttribute="bottom" constant="8" id="au3-sa-BUV"/>
+                            <constraint firstItem="rxB-3K-4qQ" firstAttribute="leading" secondItem="4UO-UJ-Jfi" secondAttribute="leadingMargin" id="ds1-pM-Ovi"/>
+                            <constraint firstItem="cef-7R-Kmd" firstAttribute="leading" secondItem="4UO-UJ-Jfi" secondAttribute="leadingMargin" id="e6N-Jc-zdW"/>
+                            <constraint firstItem="YcU-FU-R77" firstAttribute="top" secondItem="4Qg-Yr-jy5" secondAttribute="bottom" constant="8" id="ioE-3k-KWs"/>
+                            <constraint firstItem="KgY-db-tVs" firstAttribute="top" secondItem="YcU-FU-R77" secondAttribute="bottom" constant="8" id="oZa-1S-stK"/>
+                            <constraint firstItem="rxB-3K-4qQ" firstAttribute="top" secondItem="4Qg-Yr-jy5" secondAttribute="bottom" constant="8" id="pHq-P2-Dm7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Pain Points" id="3sm-eI-kVb"/>
                     <connections>
-                        <outlet property="collectionView" destination="MLc-66-fqE" id="ml2-Ya-VfC"/>
+                        <outletCollection property="buttons" destination="rxB-3K-4qQ" id="AKs-bo-x1H"/>
+                        <outletCollection property="buttons" destination="cef-7R-Kmd" id="C5r-aR-g2p"/>
+                        <outletCollection property="buttons" destination="l2Q-Xn-1oB" id="Z0K-al-sWC"/>
+                        <outletCollection property="buttons" destination="LRF-4t-b1r" id="eFW-dB-dzs"/>
+                        <outletCollection property="buttons" destination="KgY-db-tVs" id="sJY-eH-63p"/>
+                        <outletCollection property="buttons" destination="YcU-FU-R77" id="8L0-eV-uO1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Yt-0S-Fzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
