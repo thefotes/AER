@@ -12,9 +12,9 @@
 {
     self = [super init];
     if (self) {
-        _firstName = dict[@"First"];
-        _lastName = dict[@"Last"];
-        _phoneNumber = dict[@"Phone"];
+        _firstName = dict[@"firstName"];
+        _lastName = dict[@"lastName"];
+        _phoneNumber = dict[@"phoneNumber"];
     }
     
     return self;

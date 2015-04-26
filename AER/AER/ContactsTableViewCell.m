@@ -11,7 +11,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *fullNameLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (weak, nonatomic) IBOutlet UIImageView *checkmarkIcon;
 
 @end
 
@@ -40,9 +39,9 @@
     [self.activityIndicator stopAnimating];
     self.activityIndicator.hidden = YES;
     if (state == SpinnerStateSuccessful) {
-        self.checkmarkIcon.hidden = NO;
+        self.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
-        self.checkmarkIcon.hidden = YES;
+        self.accessoryType = UITableViewCellAccessoryNone;
     }
 }
 

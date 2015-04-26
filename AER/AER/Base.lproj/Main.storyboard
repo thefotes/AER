@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iG6-Zv-kYE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iG6-Zv-kYE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--Contacts View Controller-->
+        <!--Contacts-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ContactsViewController" sceneMemberID="viewController">
@@ -33,7 +33,18 @@
                             <constraint firstAttribute="trailing" secondItem="ouw-MW-Mtg" secondAttribute="trailing" id="rVX-UR-6s0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="waK-oa-pf2"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="waK-oa-pf2">
+                        <barButtonItem key="leftBarButtonItem" title="Notify" id="6pA-nS-na9">
+                            <connections>
+                                <action selector="notifyTapped:" destination="vXZ-lx-hvc" id="Fe5-Vc-2aQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dZd-9u-dZN">
+                            <connections>
+                                <action selector="addContactTapped:" destination="vXZ-lx-hvc" id="QjS-Wr-K81"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ouw-MW-Mtg" id="uok-vT-QiM"/>
                     </connections>
@@ -72,19 +83,18 @@
                     </tabBar>
                     <connections>
                         <segue destination="yDM-ME-5cb" kind="relationship" relationship="viewControllers" id="T7d-t4-83f"/>
-                        <segue destination="1fq-3d-UPp" kind="relationship" relationship="viewControllers" id="qrc-59-TJU"/>
-                        <segue destination="AY5-sX-rpy" kind="relationship" relationship="viewControllers" id="kxa-bT-eqZ"/>
+                        <segue destination="KDe-ub-tO2" kind="relationship" relationship="viewControllers" id="kxa-bT-eqZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DbE-5d-UU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="325" y="363"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Contacts-->
         <scene sceneID="olM-Gb-gHm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yDM-ME-5cb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="sRa-hV-iKA"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="sample-1049-at-sign" id="sRa-hV-iKA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1a0-35-qBJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -99,60 +109,7 @@
             </objects>
             <point key="canvasLocation" x="1137" y="363"/>
         </scene>
-        <!--New Seizure View Controller-->
-        <scene sceneID="tIb-1t-3Yy">
-            <objects>
-                <viewController id="RcS-VC-h0V" customClass="NewSeizureViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cJj-kN-ge7"/>
-                        <viewControllerLayoutGuide type="bottom" id="RbI-TF-4DW"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gnj-dm-2ca">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1m-JO-SfG">
-                                <rect key="frame" x="231" y="285" width="138" height="30"/>
-                                <state key="normal" title="I Just Had a Seizure">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="goToContacts" id="lem-tS-aIe"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="p1m-JO-SfG" secondAttribute="centerY" id="XZH-Hk-sK8"/>
-                            <constraint firstAttribute="centerX" secondItem="p1m-JO-SfG" secondAttribute="centerX" id="Zr4-gL-tZd"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Et1-7M-wPp"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y6w-c6-md8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1949" y="1082"/>
-        </scene>
-        <!--Record-->
-        <scene sceneID="5CH-Za-k1e">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1fq-3d-UPp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Record" id="5c7-Zu-rJp"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Axo-yp-SiL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="RcS-VC-h0V" kind="relationship" relationship="rootViewController" id="sgE-MH-O6i"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="80h-cT-jiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1137" y="1082"/>
-        </scene>
-        <!--Cloud-->
+        <!--Pain Points-->
         <scene sceneID="KSr-dA-a2q">
             <objects>
                 <viewController id="AY5-sX-rpy" customClass="WordCloudViewController" sceneMemberID="viewController">
@@ -164,7 +121,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MLc-66-fqE">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MLc-66-fqE">
                                 <rect key="frame" x="16" y="61" width="568" height="482"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dyY-Jm-y8T">
@@ -189,7 +146,7 @@
                                     <outlet property="delegate" destination="AY5-sX-rpy" id="h2b-vt-L0E"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Pain Points" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IH-ta-XGz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select Pain Points" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IH-ta-XGz">
                                 <rect key="frame" x="231" y="28" width="138" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -206,17 +163,37 @@
                             <constraint firstItem="fNv-hz-44e" firstAttribute="top" secondItem="MLc-66-fqE" secondAttribute="bottom" constant="8" id="enV-Lq-d7q"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Cloud" id="s6q-Og-V9V"/>
+                    <navigationItem key="navigationItem" title="Pain Points" id="3sm-eI-kVb"/>
                     <connections>
                         <outlet property="collectionView" destination="MLc-66-fqE" id="ml2-Ya-VfC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Yt-0S-Fzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1949" y="1779"/>
+            <point key="canvasLocation" x="1869" y="1121"/>
+        </scene>
+        <!--List-->
+        <scene sceneID="BOj-wx-3Qo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KDe-ub-tO2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="List" image="sample-1040-checkmark" id="s6q-Og-V9V"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K05-JX-2gD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AY5-sX-rpy" kind="relationship" relationship="rootViewController" id="R0y-OO-WEu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vOA-fu-OvC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="1121"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="lem-tS-aIe"/>
-    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="sample-1040-checkmark" width="28" height="26"/>
+        <image name="sample-1049-at-sign" width="28" height="28"/>
+    </resources>
 </document>

@@ -228,13 +228,13 @@
 		D0ED69AA1AEB5C88008EDA8B /* AER */ = {
 			isa = PBXGroup;
 			children = (
+				D0ED69AF1AEB5C88008EDA8B /* AppDelegate.h */,
+				D0ED69B01AEB5C88008EDA8B /* AppDelegate.m */,
 				D0BDED0F1AEC094B00BEE977 /* Models */,
 				D0BDED041AEC03A500BEE977 /* Views */,
 				D0BDED031AEC02B800BEE977 /* View Controllers */,
 				D0BDECF31AEBD96100BEE977 /* Serializers */,
 				D06CDE1C1AEBD1E900B4F0B9 /* Categories */,
-				D0ED69AF1AEB5C88008EDA8B /* AppDelegate.h */,
-				D0ED69B01AEB5C88008EDA8B /* AppDelegate.m */,
 				D06CDE141AEBCE1E00B4F0B9 /* Factories */,
 				D06CDE1B1AEBD16600B4F0B9 /* Network Communicators */,
 				D0ED69B51AEB5C88008EDA8B /* Main.storyboard */,
@@ -325,6 +325,7 @@
 				TargetAttributes = {
 					D0ED69A71AEB5C88008EDA8B = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 57SSAE26SJ;
 					};
 					D0ED69C01AEB5C88008EDA8B = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -556,6 +557,7 @@
 			baseConfigurationReference = D03FCB5B1AEB6761009F03C6 /* Warnings.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AER/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -567,6 +569,7 @@
 			baseConfigurationReference = 6BA08DC4C7E3856CEF1DECD6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AER/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
