@@ -29,7 +29,7 @@
 - (IBAction)notifyTapped:(id)sender
 {
     for (Contact *contact in [ContactManager sharedManager].contacts) {
-        [[TwilioCommunicator sharedTwilioCommunicator] sendMessage:[self messageForContact:contact]
+        [[TwilioCommunicator sharedTwilioCommunicator] sendMessage:contact.message
                                                          toContact:contact
                                                     withCompletion:^(id obj) {
                                                         dispatch_async(dispatch_get_main_queue(), ^{
@@ -37,12 +37,6 @@
                                                     } andFailure:^(NSError *error) {
                                                     }];
     }
-}
-
-
-- (NSString *)messageForContact:(Contact *)contact
-{
-    return [NSString stringWithFormat:@"Alert: John D. has reported a seizure via Recovery_epilepsy please be on standby, your help may be requuested."];
 }
 
 @end
