@@ -11,7 +11,7 @@
 @interface TaskViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, assign) CGRect tableViewFrame;
+@property (nonatomic, copy) NSArray *items;
 
 @end
 
@@ -21,6 +21,9 @@
 {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonTapped:)];
+    
+    self.items = @[@"Transportation", @"Pet care", @"Meal preparation", @"Appointment scheduling", @"Fitness", @"Finances"];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -45,14 +48,32 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return (NSInteger)self.items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
-    cell.textLabel.text = @"Cell";
+    cell.textLabel.text = self.items[(NSUInteger)indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell.backgroundView) {
+        cell.backgroundView = nil;
+        return;
+    }
+
+    UIView *backgroundView = [UIView new];
+    backgroundView.backgroundColor = [UIColor greenColor];
+    cell.backgroundView = backgroundView;
+}
+
+
 
 @end

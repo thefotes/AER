@@ -35,14 +35,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Contacts" id="waK-oa-pf2">
-                        <barButtonItem key="leftBarButtonItem" title="Notify" id="6pA-nS-na9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cb6-Jf-mWG">
                             <connections>
-                                <action selector="notifyTapped:" destination="vXZ-lx-hvc" id="Fe5-Vc-2aQ"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dZd-9u-dZN">
-                            <connections>
-                                <action selector="addContactTapped:" destination="vXZ-lx-hvc" id="QjS-Wr-K81"/>
+                                <action selector="addButtonTapped:" destination="vXZ-lx-hvc" id="8p5-iH-BHM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -85,6 +80,7 @@
                     <connections>
                         <segue destination="yDM-ME-5cb" kind="relationship" relationship="viewControllers" id="T7d-t4-83f"/>
                         <segue destination="bbe-t0-fJH" kind="relationship" relationship="viewControllers" id="RGG-6f-T0V"/>
+                        <segue destination="0zs-py-UfG" kind="relationship" relationship="viewControllers" id="d2Y-FI-XZn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DbE-5d-UU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -167,7 +163,7 @@
                                     <constraint firstAttribute="width" constant="125" id="69m-1G-CUZ"/>
                                     <constraint firstAttribute="height" constant="75" id="VDs-qL-tu3"/>
                                 </constraints>
-                                <state key="normal" title="Mental">
+                                <state key="normal" title="Lifestyle">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -232,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Yt-0S-Fzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1819" y="1096"/>
+            <point key="canvasLocation" x="2631" y="1096"/>
         </scene>
         <!--Task View Controller-->
         <scene sceneID="QNT-sO-Sju">
@@ -279,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sQ2-bf-cnM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2461" y="1096"/>
+            <point key="canvasLocation" x="3273" y="1096"/>
         </scene>
         <!--Pain Points-->
         <scene sceneID="Xyb-pn-Z9o">
@@ -301,9 +297,71 @@
             </objects>
             <point key="canvasLocation" x="325" y="1067"/>
         </scene>
+        <!--Seizure-->
+        <scene sceneID="k08-aw-JGW">
+            <objects>
+                <viewController id="qFo-nc-X5W" customClass="SeizureViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KrE-Uc-pQg"/>
+                        <viewControllerLayoutGuide type="bottom" id="IoK-4w-2GC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Zb-Zy-KRw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1U-QU-pUB">
+                                <rect key="frame" x="193" y="175" width="215" height="83"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="Ob0-Iy-Wty"/>
+                                    <constraint firstAttribute="width" constant="215" id="o2h-lA-VGn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <state key="normal" title="NOTIFY">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="notifyTapped:" destination="qFo-nc-X5W" eventType="touchUpInside" id="p3P-VG-Lsc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="X1U-QU-pUB" firstAttribute="top" secondItem="KrE-Uc-pQg" secondAttribute="bottom" constant="111" id="CKm-ra-WC7"/>
+                            <constraint firstAttribute="centerX" secondItem="X1U-QU-pUB" secondAttribute="centerX" constant="-0.5" id="fG5-vw-114"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Seizure" id="eQf-qM-ad3"/>
+                    <connections>
+                        <outlet property="notifyButton" destination="X1U-QU-pUB" id="WAO-go-7It"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rpx-t4-o3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1919" y="1109"/>
+        </scene>
+        <!--Seizure-->
+        <scene sceneID="pBB-9j-0Mk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0zs-py-UfG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Seizure" image="sample-1093-lightning-bolt-2" id="Ebu-0Z-PV7"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3AG-wJ-gX3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qFo-nc-X5W" kind="relationship" relationship="rootViewController" id="Zz2-AD-E7a"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zGb-g9-XL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1107" y="1109"/>
+        </scene>
     </scenes>
     <resources>
         <image name="sample-1040-checkmark" width="28" height="26"/>
         <image name="sample-1049-at-sign" width="28" height="28"/>
+        <image name="sample-1093-lightning-bolt-2" width="22" height="28"/>
     </resources>
 </document>

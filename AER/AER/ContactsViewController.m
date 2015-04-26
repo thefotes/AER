@@ -6,6 +6,7 @@
 #import "ContactsTableViewCell.h"
 #import "Contact.h"
 #import "TwilioCommunicator.h"
+#import "ContactManager.h"
 
 @import AddressBookUI;
 
@@ -53,59 +54,48 @@
 
 #pragma mark - Target - Action
 
-- (IBAction)addContactTapped:(id)sender
+- (IBAction)addButtonTapped:(id)sender
 {
     ABPeoplePickerNavigationController *navController = [[ABPeoplePickerNavigationController alloc] init];
     navController.peoplePickerDelegate = self;
-    
-    [self presentViewController:navController animated:YES completion:nil];  
-}
-
-- (IBAction)notifyTapped:(id)sender
-{
-    NSArray *cells = [self.tableView visibleCells];
-    
-    for (ContactsTableViewCell *cell in cells) {
-        [cell startSpinning];
-        
-        [[TwilioCommunicator sharedTwilioCommunicator] sendMessage:[self messageForContact:cell.currentContact]
-                                                         toContact:cell.currentContact
-                                                    withCompletion:^(id obj) {
-                                                        dispatch_async(dispatch_get_main_queue(), ^{
-                                                            [cell stopSpinningForState:SpinnerStateSuccessful];
-                                                        });
-                                                    } andFailure:^(NSError *error) {
-                                                        NSLog(@"Failed %@", error);
-                                                    }];
-    }
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person
 {
-    NSString *firstName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
-    NSString *lastName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
-    NSString *phoneNumber = @"[None]";
+    NSMutableDictionary *dictionary = [NSMutableDictionary new];
     
-    ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
-    
-    for (int i = 0; i < ABMultiValueGetCount(phoneNumbers); i++) {
-        NSString *label = (__bridge_transfer NSString *)ABMultiValueCopyLabelAtIndex(phoneNumbers, i);
-        if ([label isEqualToString:(__bridge_transfer NSString *)kABPersonPhoneMobileLabel]) {
-            phoneNumber = (__bridge_transfer NSString *)ABMultiValueCopyValueAtIndex(phoneNumbers, i);
-            break;
+    for ( int32_t propertyIndex = kABPersonFirstNameProperty; propertyIndex <= kABPersonSocialProfileProperty; propertyIndex ++ ) {
+        NSString* propertyName = CFBridgingRelease(ABPersonCopyLocalizedPropertyName(propertyIndex));
+        id value = CFBridgingRelease(ABRecordCopyValue(person, propertyIndex));
+        NSMutableArray *mobilePhones = [NSMutableArray arrayWithCapacity:0];
+        if ([propertyName isEqualToString:@"Phone"]) {
+            ABMultiValueRef phones = (__bridge ABMultiValueRef)(value);
+            NSArray *allPhoneNumbers = (NSArray *)CFBridgingRelease(ABMultiValueCopyArrayOfAllValues(phones));
+            for (NSUInteger i = 0; i < [allPhoneNumbers count]; i++) {
+                if ([(NSString *)CFBridgingRelease(ABMultiValueCopyLabelAtIndex(phones, (long)i)) isEqualToString:(NSString *)kABPersonPhoneMobileLabel]) {
+                    [mobilePhones addObject:CFBridgingRelease(ABMultiValueCopyValueAtIndex(phones, (long)i))];
+                }
+                if ([(NSString *)CFBridgingRelease(ABMultiValueCopyLabelAtIndex(phones, (long)i)) isEqualToString:(NSString *)kABPersonPhoneIPhoneLabel]) {
+                    [mobilePhones addObject:CFBridgingRelease(ABMultiValueCopyValueAtIndex(phones, (long)i))];             }
+            }
+            NSString *rawNumber = [mobilePhones firstObject];
+            NSString *cleanNumber = [[rawNumber componentsSeparatedByCharactersInSet:
+            [[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
+            dictionary[propertyName] = cleanNumber;
+        } else {
+            if ( value )
+                [dictionary setObject:value forKey:propertyName];
         }
     }
     
-    Contact *contact = [[Contact alloc] initWithDictionary:@{ @"firstName": firstName, @"lastName": lastName, @"phoneNumber": phoneNumber }];
-    [self.contacts addObject:contact];
+    Contact *newContact = [[Contact alloc] initWithDictionary:dictionary];
+    [self.contacts addObject:newContact];
     [self.tableView reloadData];
-    
-    CFRelease(phoneNumbers);
 }
 
-- (NSString *)messageForContact:(Contact *)contact
-{
-    return [NSString stringWithFormat:@"%@, I recently had an epileptic seizure and I'll be needing assistance in the coming days. Please take a look at the AER app for ways that you can help. Thanks in advance.", contact.firstName];
-}
+
+
+
 
 @end
